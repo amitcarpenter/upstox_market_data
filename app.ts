@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from "express";
 import connectToDatabase from "./src/config/db";
 import configureApp from "./src/config/routes";
 import { getAccessTokenAndConnectWebSocket } from "./src/services/restart_websocket";
+import "./src/utils/download_csv";
 import dotenv from "dotenv";
 dotenv.config();
 
