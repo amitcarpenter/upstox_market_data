@@ -94,7 +94,8 @@ const WebSocketService = async (accessToken) => {
     const wsUrl = await getMarketFeedUrl();
     const ws = await connectWebSocket(wsUrl);
   } catch (error) {
-    console.error("An error occurred:", error);
+    console.log("update you access code of the upstox")
+    console.error("An error occurred:", error.Authorization);
   }
 };
 
