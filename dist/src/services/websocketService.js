@@ -99,6 +99,7 @@ const WebSocketService = async (accessToken) => {
   try {
     console.log(accessToken);
     OAUTH2.accessToken = accessToken;
+    console.log(accessToken)
     await initProtobuf();
     const wsUrl = await getMarketFeedUrl();
     const ws = await connectWebSocket(wsUrl);

@@ -131,4 +131,4 @@ const insert_nse_fo_and_mcx_fo = () => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.insert_nse_fo_and_mcx_fo = insert_nse_fo_and_mcx_fo;
-// (0, exports.insert_nse_fo_and_mcx_fo)();
+(0, exports.insert_nse_fo_and_mcx_fo)();
