@@ -1,4 +1,6 @@
 import { createConnection, Connection } from "mysql2/promise";
+import dotenv from "dotenv";
+dotenv.config();
 
 interface DbConfig {
   host: string;
@@ -8,10 +10,10 @@ interface DbConfig {
 }
 
 const dbConfig: DbConfig = {
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "upstox_market_data",
+  host: process.env.DB_HOST as string,
+  user: process.env.DB_USER as string,
+  password: process.env.DB_PASSWORD as string,
+  database: process.env.DB_DATABASE as string,
 };
 
 const connectToDatabase = async (): Promise<Connection> => {

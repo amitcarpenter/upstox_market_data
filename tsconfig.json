@@ -112,5 +112,5 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts"
-, "src/config/filter.ts", "src/services/websocketService.js", "./app.ts"  ]
+, "src/config/filter.ts", "src/services/websocketService.js", "./app.ts" , "src/assets" ]
 }
