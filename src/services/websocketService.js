@@ -2,6 +2,15 @@
 var UpstoxClient = require("upstox-js-sdk");
 const WebSocket = require("ws").WebSocket;
 const protobuf = require("protobufjs");
+const fetchAndFormatData = require("./instument_key_formating");
+
+var instrumentKeys;
+// setInterval(() => {
+  (async () => {
+    instrumentKeys = await fetchAndFormatData();
+    console.log(instrumentKeys);
+  })();
+// }, 10000);
 
 // Initialize global variables
 let protobufRoot = null;
@@ -44,7 +53,7 @@ const connectWebSocket = async (wsUrl) => {
           method: "sub",
           data: {
             mode: "full",
-            instrumentKeys: ["MCX_FO|427601"],
+            instrumentKeys,
           },
         };
         ws.send(Buffer.from(JSON.stringify(data)));
@@ -94,7 +103,7 @@ const WebSocketService = async (accessToken) => {
     const wsUrl = await getMarketFeedUrl();
     const ws = await connectWebSocket(wsUrl);
   } catch (error) {
-    console.log("update you access code of the upstox")
+    console.log("update you access code of the upstox");
     console.error("An error occurred:", error.Authorization);
   }
 };

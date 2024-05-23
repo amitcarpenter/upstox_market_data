@@ -9,4 +9,9 @@ router.get("/market_data", (req: Request, res: Response) => {
   res.send("login success fully for the market data");
 });
 
+
+router.get("/market_data", (req: Request, res: Response) => {
+  res.send("login success fully for the market data");
+});
+
 export default router;
