@@ -60,4 +60,4 @@ const fetchAndFormatData = async () => {
   }
 };
 
-module.exports = fetchAndFormatData;
+module.exports = {fetchAndFormatData , connectToDatabase};
