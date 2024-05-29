@@ -72,7 +72,7 @@ const extractAndSaveData = async (
     fs.createReadStream(filePath)
       .pipe(csvParser())
       .on("data", async (row: CsvRow) => {
-        if (row.exchange === exchangeFilter) {
+        if (row.exchange === exchangeFilter && row.option_type === "FF") {
           try {
             await connection.execute(
               `INSERT INTO ${tableName} (
