@@ -1,4 +1,4 @@
-// Import required modules 
+// Import required modules
 const UpstoxClient = require("upstox-js-sdk");
 const WebSocket = require("ws").WebSocket;
 const protobuf = require("protobufjs");
@@ -61,7 +61,6 @@ const fetchDetailsFromMcxFo = async (instrumentKey) => {
   }
 };
 
-
 // Function to save data to the database
 const saveToDatabase = async (data) => {
   if (!data.feeds || Object.keys(data.feeds).length === 0) {
@@ -76,10 +75,11 @@ const saveToDatabase = async (data) => {
   const isin = instrumentKey.split("|")[1];
   const exchange = instrumentKey.split("|")[0];
 
-  console.log(exchange)
+  console.log(exchange);
 
   // Ensure non-null values
-  const safeValue = (value) => (value === null || value === undefined ? "" : value);
+  const safeValue = (value) =>
+    value === null || value === undefined ? "" : value;
 
   if (exchange === "NSE_EQ") {
     const { Symbol, Company_Name, Industry } = await fetchDetailsFromISIN(isin);
@@ -138,7 +138,7 @@ const saveToDatabase = async (data) => {
     }
   } else if (exchange === "NSE_FO") {
     const details = await fetchDetailsFromNseFo(instrumentKey);
-    const Company_Name = processCompanyName(details.tradingsymbol);
+    const Company_Name = null;
     const Symbol = details.tradingsymbol;
     const expiry = details.expiry;
     const Industry = null;
